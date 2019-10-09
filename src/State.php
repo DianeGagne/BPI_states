@@ -19,9 +19,9 @@ class State
     /**
      * @param State $zeroResult
      * @param State $oneResult
-     * @param int $finalState
+     * @param int $finalState - set to null if a final state is not allowed
      */
-    public function setTransitions(State $zeroResult, State $oneResult, int $finalState){
+    public function setTransitions(State $zeroResult, State $oneResult, int $finalState = null){
 
     }
 
