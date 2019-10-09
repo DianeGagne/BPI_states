@@ -43,7 +43,7 @@ class State
      * Get the output if this is the final state
      */
     public function getFinalState(){
-        if($this->finalState){
+        if(isset($this->finalState)){
             return (String) $this->finalState;
         }
         return 'Invalid Input';
