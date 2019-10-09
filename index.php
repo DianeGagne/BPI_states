@@ -7,6 +7,7 @@
 </form>
 
 <?php
+
 /**
  * Use a simple html entry form to test the state machine.
  * It will display the final state output for any valid input, otherwise it will give an 'Invalid Input' as the final state output
