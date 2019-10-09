@@ -7,14 +7,13 @@
 </form>
 
 <?php
-
 /**
  * Use a simple html entry form to test the state machine.
  * It will display the final state output for any valid input, otherwise it will give an 'Invalid Input' as the final state output
  */
 
 if (isset($_POST["states"])) {
-    include_once("src/StateMachine.php");
+    include_once($_SERVER['DOCUMENT_ROOT'] . "/src/StateMachine.php");
 
     $state = $_POST["states"];
 
