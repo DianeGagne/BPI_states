@@ -12,31 +12,40 @@ declare(strict_types=1);
  */
 class State
 {
-    private $zeroTransition;
-    private $oneTransition;
-    private $finalState;
+    private $transitionState = [];
+    private $finalState = null;
 
     /**
-     * @param State $zeroResult
-     * @param State $oneResult
-     * @param int $finalState - set to null if a final state is not allowed
+     * @param int $transition
+     * @param State $nextState
      */
-    public function setTransitions(State $zeroResult, State $oneResult, int $finalState = null){
+    public function setTransition(int $transition, State $nextState){
+        $this->transitionState[$transition] = $nextState;
+    }
 
+    public function setFinalState(int $finalState){
+        $this->finalState = $finalState;
     }
 
     /**
      * Get the next state with the given input
      * @param int $input
+     * @return State
      */
     public function getNextState(int $input){
-
+        if(isset($this->transitionState[$input])){
+            return $this->transitionState[$input];
+        }
+        return $this;
     }
 
     /**
      * Get the output if this is the final state
      */
     public function getFinalState(){
-
+        if($this->finalState){
+            return (String) $this->finalState;
+        }
+        return 'Invalid Input';
     }
 }
